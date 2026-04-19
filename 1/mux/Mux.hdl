@@ -1,0 +1,25 @@
+/** 
+ * Multiplexor:
+ * if (sel = 0) out = a, else out = b
+ */
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    /*
+        when sel is 0, notSel is 1, so whatever A is, 
+        it'll be like multiplying by 1. if a is 0, out = 0.
+        if a is 1, out = 1.
+
+        as for b, if sel is 0, b is blocked. no matter what b is,
+        0 or 1, it'll always be 0.
+
+        then the OR. if sel is 0, and a is 1, b will always be 0 and out is 1.
+        same goes for when notSel is 0.
+    */
+    Not(in=sel, out=notSel);
+    And(a=a, b=notSel, out=andA);
+    And(a=b, b=sel, out=andB);
+    Or(a=andA, b=andB, out=out);
+}

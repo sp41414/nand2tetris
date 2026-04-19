@@ -1,0 +1,20 @@
+/**
+ * Demultiplexor:
+ * [a, b] = [in, 0] if sel = 0
+ *          [0, in] if sel = 1
+ */
+CHIP DMux {
+    IN in, sel;
+    OUT a, b;
+
+    PARTS:
+    /*
+        same logic as Mux, just instead of outputting the final Or value,
+        we directly output it to A and B depending on the selector.
+        if the selector is A, and in is 0, A is 0.
+        if the selector is A, and in is 1, A is 1.
+    */
+    Not(in=sel, out=notSel);
+    And(a=in, b=sel, out=b);
+    And(a=in, b=notSel, out=a);
+}
