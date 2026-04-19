@@ -1,0 +1,19 @@
+/**
+ * Or gate:
+ * if (a or b) out = 1, else out = 0 
+ */
+CHIP Or {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    /*
+        Nand works just fine as OR, the only problem is
+        0, 0 is 1
+        and 1, 1 is 0.
+        We need OR to have this as the opposite, so we just invert the inputs.
+    */
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    Nand(a=nota, b=notb, out=out);
+}
