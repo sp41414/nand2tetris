@@ -1,0 +1,16 @@
+/**
+ * And gate:
+ * if (a and b) out = 1, else out = 0 
+ */
+CHIP And {
+    IN a, b;
+    OUT out;
+    
+    PARTS:
+    /*
+        we first Nand it, then reverse the Not from the Nand
+        to get the And
+    */
+    Nand(a=a, b=b, out=nandOut);
+    Not(in=nandOut, out=out);
+}
