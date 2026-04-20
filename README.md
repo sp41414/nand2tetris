@@ -17,6 +17,6 @@ Project 1 - Boolean Logic
 - [Or8Way](1/or8way/Or8Way.hdl)
 - [Mux4Way16](1/mux4way16/Mux4Way16.hdl)
 - [Mux8Way16](1/mux8way16/Mux8Way16.hdl)
-- [DMux4Way](1/dmux4way/DMux4Way.hdl)
-- [DMux8Way](1/dmux8way/DMux8Way.hdl)
+- [DMux4Way](1/dmux4way/Dmux4Way.hdl)
+- [DMux8Way](1/dmux8way/Dmux8Way.hdl)
 </details>
